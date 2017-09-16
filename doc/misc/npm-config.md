@@ -31,6 +31,9 @@ npm will set its own environment variables and Node will prefer
 those lowercase versions over any uppercase ones that you might set.
 For details see [this issue](https://github.com/npm/npm/issues/14528).
 
+Notice that you need to use underscores instead of dashes, so `--allow-same-version`
+would become `npm_config_allow_same_version=true`.
+
 ### npmrc Files
 
 The four relevant files are:
@@ -583,15 +586,15 @@ to the npm registry.  Must be IPv4 in versions of Node prior to 0.12.
 
 ### loglevel
 
-* Default: "warn"
+* Default: "notice"
 * Type: String
-* Values: "silent", "error", "warn", "http", "info", "verbose", "silly"
+* Values: "silent", "error", "warn", "notice", "http", "timing", "info",
+  "verbose", "silly"
 
 What level of logs to report.  On failure, *all* logs are written to
 `npm-debug.log` in the current working directory.
 
-Any logs of a higher level than the setting are shown.
-The default is "warn", which shows warn and error output.
+Any logs of a higher level than the setting are shown. The default is "notice".
 
 ### logstream
 
